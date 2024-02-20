@@ -1,0 +1,34 @@
+enum EventType {
+    WORKSHOP
+    ACTIVITY
+    TECH_TALK
+}
+
+enum Permission {
+    PUBLIC
+    PRIVATE
+}
+
+type Speaker {
+    name: String!
+}
+
+
+type SampleEvent {
+    id: Int!
+    name: String!
+    event_type: EventType!
+    permission: Permission
+    start_time: Int! # unix timestamp (ms)
+    end_time: Int!   # unix timestamp (ms)
+    description: String
+    speakers: [Speaker!]
+    public_url: String  # A url to display for the general public
+    private_url: String! # A url to display for hackers
+    related_events: [Int!] # A list ids corresponding to related events
+}
+
+type Query {
+    sampleEvents: [SampleEvent!]
+    sampleEvent(id: Int!): SampleEvent
+}
