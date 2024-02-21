@@ -1,0 +1,9 @@
+.event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(225, 215, 215, 0.2);
+    cursor: pointer;
+}
