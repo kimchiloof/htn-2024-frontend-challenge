@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { HackTheNorthClient } from "./client";
 
-export async function FetchData(query) {
+export default async function FetchData(query) {
     try {
         const result = await HackTheNorthClient.query({
             query: query
@@ -31,6 +31,9 @@ export const ALL_EVENTS_BASIC = gql`
             permission
             start_time
             end_time
+            speakers {
+                name
+            }
             public_url
             private_url
         }
