@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import FetchData, {ALL_EVENTS_DETAIL} from "../../data/hackthenorth/queries";
 import EventList from "./event-card";
-import {GLOBAL_CONTEXT} from "../../App";
+// import {GLOBAL_CONTEXT} from "../../App";
 
 export default function Home() {
     return (
@@ -10,13 +10,13 @@ export default function Home() {
 }
 
 function DisplayAllEvents () {
-    const {
-        loggedIn, setLoggedIn,
-        sortDate, setSortDate
-    } = GLOBAL_CONTEXT();
+    // const {
+    //     loggedIn, setLoggedIn,
+    //     sortDate, setSortDate
+    // } = GLOBAL_CONTEXT();
     
     const [events, setEvents] = useState(null);
-    const [sortedEvents, setSortedEvents] = useState(null);
+    // const [sortedEvents, setSortedEvents] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -27,13 +27,13 @@ function DisplayAllEvents () {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        if (sortDate) {
-            setSortedEvents([...events].sort((a, b) => a.start_time - b.start_time));
-        } else {
-            setSortedEvents(events);
-        }
-    }, [sortDate]);
+    // useEffect(() => {
+    //     if (sortDate && events != null) {
+    //         setSortedEvents([...events].sort((a, b) => a.start_time - b.start_time));
+    //     } else {
+    //         setSortedEvents(events);
+    //     }
+    // }, [events, sortDate]);
 
     return (
         <div>

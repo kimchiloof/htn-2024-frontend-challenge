@@ -18,7 +18,7 @@ export default function EventList({ events }) {
             <div key={event.id} className="row-md-4 mb-4">
                 {
                     (event.permission === "public" || (event.permission === "private" && loggedIn)) && (
-                        <EventCard event={event} />
+                        <EventCard event={event} allEvents={events} />
                     )
                 }
             </div>
@@ -31,10 +31,12 @@ export default function EventList({ events }) {
     );
 }
 
-function EventCard ({ event }) {
+function EventCard ({ event, allEvents }) {
     const startDate = new Date(event.start_time);
     const endDate = new Date(event.end_time);
     let speakers = event.speakers.map(speaker => speaker.name).join(", ");
+    let related = event.related_events.map(id => allEvents.find(ev => ev.id === id).name).join(", ");
+
 
     // Dialog
     const [showDialog, setShowDialog] = useState(false);
@@ -93,8 +95,9 @@ function EventCard ({ event }) {
                             </div>
                         }
                     </div>
-                    <p>Date: {ToDisplayDate(startDate, endDate)}</p>
+                    <p><b>Date:</b> {ToDisplayDate(startDate, endDate)}</p>
                     <p>{event.description}</p>
+                    <p><b>Related:</b> {related}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <a href={event.private_url}>
@@ -117,8 +120,4 @@ function EventCard ({ event }) {
             </Modal>
         </>
     );
-}
-
-function EventCardContent() {
-
 }
