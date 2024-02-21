@@ -52,3 +52,8 @@
 .horizontal-item {
   margin-right: 10px;
 }
+
+.horizontal-container-stretch {
+  display: flex;
+  justify-content: space-between;
+}

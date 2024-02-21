@@ -1,5 +1,5 @@
 import { GrWorkshop } from "react-icons/gr";
-import { MdOutlineDraw, MdOutlineMessage } from "react-icons/md";
+import { MdOutlineDraw, MdOutlineMessage, MdOutlinePublic, MdLock } from "react-icons/md";
 
 
 /**
@@ -56,6 +56,21 @@ export function EventTypeColor(eventType) {
             return "lightgreen";
         case "activity":
             return "pink";
+        default:
+            break;
+    }
+}
+
+/**
+ * @param eventPermission {String}
+ * @return {String}
+ */
+export function EventPermission(eventPermission) {
+    switch (eventPermission) {
+        case "public":
+            return <MdOutlinePublic/>
+        case "private":
+            return <MdLock/>
         default:
             break;
     }

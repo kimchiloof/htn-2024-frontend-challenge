@@ -7,3 +7,21 @@
     box-shadow: 0 4px 8px rgba(225, 215, 215, 0.2);
     cursor: pointer;
 }
+
+.dark-modal .modal-content {
+    color: #fff; 
+}
+
+.dark-modal .modal-header {
+    color: #fff; 
+}
+
+.dark-modal .modal-footer {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
